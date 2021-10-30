@@ -29,3 +29,47 @@ caso queira trocar a linguagem (para nao misturar pt e en) pode-se usar:
 #  language: pt
 ```
 no arquivo de features.
+
+### Cucumber Expression
+
+É possível passar parâmetros pelas features
+
+Na feature podemos colocar um valor:
+
+```
+Scenario: Propondo um unico lance valido
+ Given Dado um lance valido de 10.0 de "fulano"
+ When Quando "fulano" propoe o lance
+ Then Entao o lance sera aceito
+```
+
+E o resultado nos mostra como usar:
+
+
+```
+io.cucumber.junit.UndefinedStepException: The step "Dado um lance valido de 10.0 de "fulano"" is undefined. You can implement it using the snippet(s) below:
+
+@Given("Dado um lance valido de {double} de {string}")
+public void dado_um_lance_valido_de_de(Double double1, String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+```
+
+Por fim a implementação:
+
+
+
+### Regex
+
+Também é possível usar expressões regulares:
+```
+@Dado("^um lance de (\\d+[.]\\d\\d?) reais do usuario (\\w+)$")
+```
+
+###  Hooks
+
+- @After e @Before: executados antes e depois de cenários
+- @BeforeStep e @AfterStep: executados antes e depois de passos @Dado @Quando ou @Entao
+- Esses métodos não ficam visíveis para quem lê apenas o arquivo .feature
+

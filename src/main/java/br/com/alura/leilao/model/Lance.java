@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 
+
 @Entity
 public class Lance {
 
@@ -90,4 +91,14 @@ public class Lance {
 		this.leilao = leilao;
 	}
 
+	@Override
+	public String toString() {
+		return "Lance{" +
+				"id=" + id +
+				", valor=" + valor +
+				", data=" + data +
+				", usuario=" + usuario +
+				", leilao=" + leilao +
+				'}';
+	}
 }
